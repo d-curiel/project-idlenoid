@@ -20,7 +20,8 @@ public class BrickIntegrityComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        CheckIntegrity();
+        //TODO: Obtener del player o de algún sitio el "daño" actual de los objetos que colisionan
+        CheckIntegrity(1);
     }
 
     private void OnEnable()
@@ -28,10 +29,10 @@ public class BrickIntegrityComponent : MonoBehaviour
         text = transform.GetComponentInChildren<TextMeshPro>();
     }
 
-    private void CheckIntegrity()
+    public void CheckIntegrity(int intensity)
     {
-        integrity--;
-        if(integrity == 0)
+        integrity -= intensity;
+        if (integrity == 0)
         {
             gameObject.SetActive(false);
         }

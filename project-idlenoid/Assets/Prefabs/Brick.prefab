@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1726488941528957525}
   - component: {fileID: 5765715303603988075}
   - component: {fileID: 4499365835732861101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LevelIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 863660059289020783}
   - component: {fileID: 4669247614679970802}
   - component: {fileID: 3426041082635095997}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,5 +300,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0

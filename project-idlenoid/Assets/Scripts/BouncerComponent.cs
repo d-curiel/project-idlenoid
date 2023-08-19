@@ -19,7 +19,7 @@ public class BouncerComponent : MonoBehaviour
         Vector2 vel = rb.velocity;
         // measure angle
         float angle = Vector2.Angle(vel, -normal);
-        if (angle == 180)
+        if (angle >= 180)
         {
 
             rb.velocity = Vector2.one * (ballSpeed + 1);

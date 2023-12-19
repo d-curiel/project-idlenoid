@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UpgradeCostComponent : MonoBehaviour
+public class UpgradeCostComponent : MonoBehaviour, IUpgradeable, IBuyable
 {
     UpgradeCostData data;
     int currentCost;
@@ -23,6 +23,10 @@ public class UpgradeCostComponent : MonoBehaviour
     public void BuyUpgrade()
     {
         PlayerScoreComponent.Instance.SpendCoins(currentCost);
+        Upgrade();
+    }
+    public void Upgrade()
+    {
         UpdateCost();
     }
 

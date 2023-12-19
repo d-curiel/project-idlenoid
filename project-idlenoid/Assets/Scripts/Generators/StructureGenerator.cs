@@ -77,18 +77,18 @@ public class StructureGenerator : MonoBehaviour
         Vector3 world_size = local_sprite_size;
         world_size.x *= transform.lossyScale.x;
         world_size.y *= transform.lossyScale.y;
-        float initialX = horizontalMiddle - Mathf.FloorToInt((StructureStaticData.rows * world_size.x) / 2);
-        float initialY = (verticalMiddle + Mathf.FloorToInt((StructureStaticData.cols * world_size.y) / 2) + world_size.y);
+        float initialX = horizontalMiddle - Mathf.FloorToInt((StructureMobileStaticData.rows * world_size.x) / 2);
+        float initialY = (verticalMiddle + Mathf.FloorToInt((StructureMobileStaticData.cols * world_size.y) / 2) + world_size.y);
 
-        structuresSkeleton = new Vector2[StructureStaticData.rows, StructureStaticData.cols];
+        structuresSkeleton = new Vector2[StructureMobileStaticData.rows, StructureMobileStaticData.cols];
 
         float currentCol;
         float currentRow = initialY;
 
-        for (int row = 0; row < StructureStaticData.rows; row++)
+        for (int row = 0; row < StructureMobileStaticData.rows; row++)
         {
             currentCol = initialX;
-            for (int col = 0; col < StructureStaticData.cols; col++)
+            for (int col = 0; col < StructureMobileStaticData.cols; col++)
             {
                 structuresSkeleton[row, col] = new Vector2(currentCol, currentRow);
                 currentCol += world_size.x;
@@ -98,14 +98,14 @@ public class StructureGenerator : MonoBehaviour
     }
     private void InitializeAllBricksStructures()
     {
-        for (int currentStructure = 0; currentStructure < StructureStaticData.structures.Count; currentStructure++)
+        for (int currentStructure = 0; currentStructure < StructureMobileStaticData.structures.Count; currentStructure++)
         {
             List<GameObject> newGround = new List<GameObject>();
             for (int i = 0; i < structuresSkeleton.GetLength(0); i++)
             {
                 for (int j = 0; j < structuresSkeleton.GetLength(1); j++)
                 {
-                    if (StructureStaticData.structures[currentStructure][i, j] == 1)
+                    if (StructureMobileStaticData.structures[currentStructure][i, j] == 1)
                     {
                         GameObject brickObject = Instantiate(brick, structuresSkeleton[i, j], Quaternion.identity);
                         brickObject.AddComponent<ClickableComponent>();
